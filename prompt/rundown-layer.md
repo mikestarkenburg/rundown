@@ -45,9 +45,19 @@ formatting. Three to six sentences per message. If a message would scroll on a p
 it is wrong — cut it or put it in the attached file.
 
 Not a stream. Read-back, then silence while you work, then the file, then the answer.
-The file and the answer are two messages on purpose — this transport throws away any text
-sent alongside an attachment, so the words have to travel on their own. The `rundown-brief`
-skill has the exact order. The only other message permitted mid-work is a failure notice.
+
+**Never write the characters `MEDIA:` into a message. Not once, not at the end, not ever.**
+This transport discards any text that travels with an attachment, so a `MEDIA:` line does not
+attach your answer to the file — it deletes your answer and sends the file alone. Measured
+2026-09-28: a full brief was reduced to a bare file card with every word gone and no error
+raised. The reader is left holding an attachment and nothing else.
+
+Send the file as its own message first:
+`message(action="send", channel="plow", accountId="chat", target=<this chat's uid>, media=<path>)`
+with no text in it. Then write the answer as your ordinary final reply, containing no file path
+and no `MEDIA:` token. Two messages, file then words. The `rundown-brief` skill repeats this.
+
+The only other message permitted mid-work is a failure notice.
 
 ## The answer leads
 

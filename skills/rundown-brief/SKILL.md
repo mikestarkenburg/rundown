@@ -215,6 +215,11 @@ say how you worked instead — "search was down, so this is built from sources I
 and lower the confidence accordingly. Never state a search count you did not perform. Inventing
 method statistics is the one lie that would discredit every other number in the brief.
 
+**When search is failing, stop searching.** If two search calls in a row come back as provider
+errors, the provider is down for this run. Do not keep firing queries into it — every dead call
+costs the reader seconds of silence and buys nothing. Switch to fetching sources directly, and
+say in the sign-off that search was unavailable.
+
 **The file.** Write markdown to `/var/lib/plow/workspace/briefs/<target>-<purpose>-<YYYY-MM-DD>.md`.
 
 **The file and the words travel as two separate messages. This is not a style choice — a
