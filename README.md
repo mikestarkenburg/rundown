@@ -1,7 +1,7 @@
 # Rundown
 
-**A research analyst you text.** A phone number, not an app. Nothing to install on the
-phone, no login, no form, no account anywhere.
+**A research analyst you text.** A phone number, not an app. To use it you install
+nothing, log in to nothing, and fill in no forms — you send a text.
 
 Text Rundown a name — a person, a company, a fund, an open role — and say why you are
 asking. Within seconds it texts back what it understood and starts working. You never wait
@@ -12,7 +12,12 @@ The same name produces a very different document depending on whether you are si
 a competitor, prepping to meet a customer, diligencing an investor, or deciding whether
 to take a job. That routing is the product.
 
-**Install:** <https://aiworthusing.com/agent-index/rundown>
+**Listing:** <https://aiworthusing.com/agent-index/rundown>
+
+One-click install from that page goes live once the Agent Index admits the image; until
+then the page is a listing, not a button. Running your own copy needs a Plow account and a
+line. This is stated plainly because a dead install button is the kind of thing this repo
+is otherwise careful about.
 
 ### What comes back
 
@@ -51,8 +56,10 @@ getting it corrected costs one text.
 corroborated, what rests on a single source, and what could not be established at all.
 A research tool that cannot tell you where it is weak is a liability.
 
-It also behaves sensibly in a group thread — it answers the person who asked, knows when
-the sender is not the owner, and makes its pitch to a guest once rather than every time.
+Group threads are **specified** but not demonstrated: the prompt answers the person who
+asked, distinguishes a guest from the owner, and pitches a guest once rather than every
+time. That behaviour passes unit tests and has never been watched on a live thread. See
+**Honest status**.
 
 ## What is in this repository
 
@@ -77,8 +84,9 @@ nothing else.
 
 ## Running it yourself
 
-The supported way in is the install link above — Rundown runs hosted, on a phone line, and
-that path needs nothing from you but a text message.
+The intended way in is hosted, on a phone line, where using it costs you nothing but a
+text message. That path is not open to the public yet — see the note under the listing
+link above.
 
 If you would rather see the image, it is public:
 
@@ -116,7 +124,8 @@ This was built for a hackathon, on a deadline. What is solid and what is not:
   answered on it, the first-turn script, the brief end to end, and the usage accounting.
   The read-back too — on a real handset, on a follow-up text rather than a first contact,
   sent 17 seconds after the inbound, with the finished brief arriving 98 seconds after the
-  text. The test suite passes.
+  text. The test suite passes — those tests are not published here, so take that one on
+  trust or don't.
 - **Fixed after a bad night, and worth reading about:** search. The original key-free
   provider stopped answering during a long development session — first a browser challenge,
   then refused connections — and by the end several unrelated search engines were challenging

@@ -79,7 +79,7 @@ Everything below was run, not assumed.
   a second key-free provider and measured working again: seven live searches inside one real
   inbound turn, every one returning.
 - The usage accounting is correct against a hand-summed ground truth on a live session.
-- The test suite passes.
+- The test suite passes. Those tests live in the build tree, not in this repository.
 - Before publishing, the image was scanned file by file for the credential values it is
   trusted with. None are present.
 - The read-back, on a real inbound text on a real handset, on a follow-up message rather than
