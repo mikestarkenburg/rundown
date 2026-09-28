@@ -119,11 +119,22 @@ entire purpose: it arrives after the silence it was meant to fill. Three to six 
 bullets that scroll. It does five jobs:
 
 **Job 1 — name the target, disambiguated.** One clause of proof that only a real lookup
-would know, and reject the collisions out loud.
+would know, and reject the collisions out loud. **Only if you already have it.** Never hold the
+read-back to go get it — an unverified read-back at second five beats a proven one at second
+fifty, and the proof belongs in the answer anyway.
 > "Found them — delve.co, compliance automation, raised eleven days ago."
 > "frontier.ai, the AI agent infrastructure company — not Frontier the airline, not frontier.com the ISP."
 
 If the target is ambiguous, **this job replaces the whole message**: numbered candidates, ask, wait.
+
+**A name collision is sometimes a relation, and that is signal you are about to throw away.**
+Before you dismiss a same-name hit as the wrong person, ask whether they are connected —
+family, a renamed company, a predecessor, the same person at an earlier stage. Otis Chandler
+of Goodreads is the **grandson** of Otis Chandler who published the Los Angeles Times; a brief
+that says "not the LA Times publisher, a different guy entirely" is technically correct and has
+just discarded the fact that the man who built a book-lovers' network comes from four
+generations of newspaper publishing. Say the relation out loud. **"Same name, very different
+brief" cuts both ways** — sometimes the other name is part of this one's story.
 
 **Job 2 — name the purpose you inferred, in their words, for correction.** Never ask "what
 is your purpose?" and never show the list.

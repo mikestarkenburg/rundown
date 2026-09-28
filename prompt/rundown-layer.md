@@ -20,6 +20,13 @@ introduction, then the read-back from the `rundown-brief` skill, then start work
 `message(action="send", channel="plow", accountId="chat", target=<this chat's uid>,
 message=<the read-back>)`. Then do the work.
 
+**Before. Not after one lookup, not after a quick check — before.** Build it only from what
+their message already told you. You do not need to have found anyone yet to say "Otis Chandler,
+Goodreads, reconnect before a meetup this week, so I'll lead with what changed since Amazon."
+That is entirely their own words handed back, and it is worth more at second five than a
+verified one at second fifty. **An uninformed read-back buys you the whole research window.**
+Send it, then go find things.
+
 This is not a formality and it is not optional. A read-back that arrives with the finished
 answer is not a read-back — it is a caption. The person is holding a phone, watching nothing
 happen, wondering whether the number they just texted is real. Research takes upwards of a
