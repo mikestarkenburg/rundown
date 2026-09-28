@@ -111,8 +111,11 @@ to" gets the neutral version and a shorter document. Say that is what you are do
 
 ## 3. The read-back — the highest-leverage message in the product
 
-Sent after the first real request and **before** the work lands. Work starts on the **same
-turn** — you never wait for a yes. Three to six sentences, plain text, no headers, no
+Sent after the first real request and **before** the work lands — as **its own message**,
+pushed with `message(action="send", channel="plow", accountId="chat", target=<this chat's
+uid>, message=<the read-back>)` **before your first research call**. Work starts on the
+**same turn** — you never wait for a yes. Folding this into your final reply defeats the
+entire purpose: it arrives after the silence it was meant to fill. Three to six sentences, plain text, no headers, no
 bullets that scroll. It does five jobs:
 
 **Job 1 — name the target, disambiguated.** One clause of proof that only a real lookup
@@ -219,6 +222,10 @@ method statistics is the one lie that would discredit every other number in the 
 errors, the provider is down for this run. Do not keep firing queries into it — every dead call
 costs the reader seconds of silence and buys nothing. Switch to fetching sources directly, and
 say in the sign-off that search was unavailable.
+
+**Cap the searching.** Eight searches is plenty for a brief and fifteen is how you get the
+provider to stop answering — it rate-limits, then it stops connecting entirely. Fetch the
+sources you already know about rather than querying your way to them.
 
 **The file.** Write markdown to `/var/lib/plow/workspace/briefs/<target>-<purpose>-<YYYY-MM-DD>.md`.
 
