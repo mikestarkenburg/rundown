@@ -22,7 +22,7 @@ This repo contains the parts of Rundown that are **ours to publish**:
 |---|---|
 | `prompt/rundown-layer.md` | The Rundown prompt layer — the agent's behaviour, voice, and turn-one rules |
 | `skills/rundown-brief/SKILL.md` | The research engine: intake, routing, source priority, brief format, confidence, and safety rules |
-| `docs/duckduckgo-pin.md` | Why the image pins a key-free search provider, and how |
+| `docs/search-providers.md` | Why the image pins two key-free search providers, and how |
 | `COLOPHON.md` | How this was made, and by whom |
 | `LICENSE` | MIT |
 
@@ -74,13 +74,17 @@ This was built for a hackathon, on a deadline. What is solid and what is not:
 - **Verified working:** the build, boot on a real phone line and the first inbound text
   answered on it, the first-turn script, the brief end to end, and the usage accounting.
   The test suite passes.
-- **Degraded, honestly:** search. The key-free provider stopped answering during a long
-  development session — first a browser challenge, then refused connections — and by the end
-  several unrelated search engines were challenging the same address. That reads as IP
-  reputation earned by our own testing volume rather than an outage, but we could not prove
-  it from one network, so we are not claiming it. Rundown falls back to the Wikipedia API and
-  primary sources, and it **tells you in the brief** when it worked that way. Two of the
-  briefs written during that window were good; both said so up front.
+- **Fixed after a bad night, and worth reading about:** search. The original key-free
+  provider stopped answering during a long development session — first a browser challenge,
+  then refused connections — and by the end several unrelated search engines were challenging
+  the same address. That read as IP reputation earned by our own testing volume rather than
+  an outage, but it could not be proven from one network, so it is not claimed here. The fix
+  was not a workaround: OpenClaw has a second key-free provider, Parallel's hosted Search
+  MCP, which runs the search on their infrastructure instead of out of the container. Same
+  host, same minute, the old path hung until timeout while the new one answered a real query
+  in about a second. Details and the honest tradeoffs are in `docs/search-providers.md`.
+  Rundown still falls back to the Wikipedia API and primary sources, and it **tells you in
+  the brief** when it worked that way.
 - **Specified but not observed on a live thread:** the read-back in a real SMS exchange,
   group routing beyond unit tests, contact-card ingest, and how a `.md` attachment renders
   in a real RCS thread.

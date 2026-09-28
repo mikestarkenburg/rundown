@@ -57,7 +57,7 @@ on 2026-09-27. This image consumes it from upstream rather than patching around 
   **GLM 5.2** is the image's primary model at runtime, with Claude Sonnet as fallback; the
   briefs produced during verification were written by GLM 5.2.
 - **DuckDuckGo** — search, chosen because it is the only key-free provider available. See
-  `docs/duckduckgo-pin.md`.
+  `docs/search-providers.md`.
 
 ## What is real and what is not
 
