@@ -229,10 +229,27 @@ say how you worked instead — "search was down, so this is built from sources I
 and lower the confidence accordingly. Never state a search count you did not perform. Inventing
 method statistics is the one lie that would discredit every other number in the brief.
 
-**When search is failing, stop searching.** If two search calls in a row come back as provider
-errors, the provider is down for this run. Do not keep firing queries into it — every dead call
-costs the reader seconds of silence and buys nothing. Switch to fetching sources directly, and
-say in the sign-off that search was unavailable.
+**When search is failing, stop searching.** Two provider errors — consecutive or in the same
+parallel batch — means the provider is down for this run. Do not keep firing queries into it.
+Every dead call costs the reader seconds of silence and buys nothing. Switch to the fallback
+path below and say in the sign-off that search was unavailable.
+
+**The fallback path, in order. Do not improvise around it.**
+
+1. **The Wikipedia API**, which is structured, key-free and reliable when everything else is
+   refusing:
+   `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=<terms>&format=json`
+   Then fetch the page itself for the detail. For a person or a company this is the highest-yield
+   source available without a key, and it is frequently the only one still answering.
+2. **The target's own site** — about, team, blog, careers, pricing, terms. Primary sources beat
+   search results anyway, and they are what a good analyst would read first regardless.
+3. **Known reference domains you can name without searching** — an obvious company or person
+   page on a site you already know handles that kind of entity.
+
+**Never fall back to scraping Google or Bing.** Their result pages are JavaScript shells; what
+you get back is script noise that reads like a page and contains nothing. A live run burned most
+of two minutes on Bing URLs and came away with nothing usable. If search is refusing you, the
+answer is primary sources, not a different search engine's HTML.
 
 **Cap the searching.** Eight searches is plenty for a brief and fifteen is how you get the
 provider to stop answering — it rate-limits, then it stops connecting entirely. Fetch the

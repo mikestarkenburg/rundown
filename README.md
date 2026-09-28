@@ -72,8 +72,15 @@ the sender is not the owner, and makes its pitch to a guest once rather than eve
 This was built for a hackathon, on a deadline. What is solid and what is not:
 
 - **Verified working:** the build, boot on a real phone line and the first inbound text
-  answered on it, the first-turn script, the brief end to end, the search path, and the
-  usage accounting. The test suite passes.
+  answered on it, the first-turn script, the brief end to end, and the usage accounting.
+  The test suite passes.
+- **Degraded, honestly:** search. The key-free provider stopped answering during a long
+  development session — first a browser challenge, then refused connections — and by the end
+  several unrelated search engines were challenging the same address. That reads as IP
+  reputation earned by our own testing volume rather than an outage, but we could not prove
+  it from one network, so we are not claiming it. Rundown falls back to the Wikipedia API and
+  primary sources, and it **tells you in the brief** when it worked that way. Two of the
+  briefs written during that window were good; both said so up front.
 - **Specified but not observed on a live thread:** the read-back in a real SMS exchange,
   group routing beyond unit tests, contact-card ingest, and how a `.md` attachment renders
   in a real RCS thread.

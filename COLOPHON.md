@@ -68,8 +68,11 @@ Everything below was run, not assumed.
 - It answers a real text on a real phone line. First contact on that line was delivered and
   acked in 6.5 seconds, against the published image rather than a dev build.
 - It produced a real brief end to end, from a live research turn rather than an SMS thread.
-- The search path works — the absence of a usable `web_search` was found and fixed before
-  publishing, not after.
+- The search path was wired and working when built — the absence of a usable `web_search` was
+  found and fixed before publishing, not after. **It then stopped answering us**, along with
+  several unrelated engines, after a night of heavy automated querying from one address. The
+  fallback to the Wikipedia API and primary sources is what carried the later briefs, and the
+  agent reported the degradation itself rather than hiding it.
 - The usage accounting is correct against a hand-summed ground truth on a live session.
 - The test suite passes.
 - Before publishing, the image was scanned file by file for the credential values it is
