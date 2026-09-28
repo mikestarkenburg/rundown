@@ -111,7 +111,8 @@ to" gets the neutral version and a shorter document. Say that is what you are do
 
 ## 3. The read-back — the highest-leverage message in the product
 
-Sent after the first real request and **before** the work lands — as **its own message**,
+Sent after **every** research request — their first and their fortieth, first contact or
+not — and **before** the work lands, as **its own message**,
 pushed with `message(action="send", channel="plow", accountId="chat", target=<this chat's
 uid>, message=<the read-back>)` **before your first research call**. Work starts on the
 **same turn** — you never wait for a yes. Folding this into your final reply defeats the
