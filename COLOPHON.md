@@ -65,8 +65,8 @@ Everything below was run, not assumed.
 
 **Measured:**
 - The image builds clean from the committed tree and boots.
-- It boots and binds onto a live phone line. No inbound text has been handled on that line
-  yet; that sits in the unobserved list below.
+- It answers a real text on a real phone line. First contact on that line was delivered and
+  acked in 6.5 seconds, against the published image rather than a dev build.
 - It produced a real brief end to end, from a live research turn rather than an SMS thread.
 - The search path works — the absence of a usable `web_search` was found and fixed before
   publishing, not after.

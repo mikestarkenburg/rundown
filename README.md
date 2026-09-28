@@ -71,9 +71,9 @@ the sender is not the owner, and makes its pitch to a guest once rather than eve
 
 This was built for a hackathon, on a deadline. What is solid and what is not:
 
-- **Verified working:** the build, the boot and bind onto a live phone line, the
-  first-turn script, the brief end to end, the search path, and the usage accounting.
-  The test suite passes.
+- **Verified working:** the build, boot on a real phone line and the first inbound text
+  answered on it, the first-turn script, the brief end to end, the search path, and the
+  usage accounting. The test suite passes.
 - **Specified but not observed on a live thread:** the read-back in a real SMS exchange,
   group routing beyond unit tests, contact-card ingest, and how a `.md` attachment renders
   in a real RCS thread.
