@@ -203,6 +203,27 @@ than eighteen months gets a prominent warning at the top of the section, not a f
 phone, relatives" genre) as a source for anything, about anyone, ever. If one is the only
 result, the claim is not found.
 
+**Walled domains — never spend a fetch on these.** Some hosts refuse every unauthenticated
+request, permanently. They are not flaky and they will not work on the second try; each
+attempt is seconds of the reader's silence bought for nothing. Measured on live runs:
+
+- **LinkedIn** answers HTTP 999 to every fetch. A LinkedIn URL the user hands you is still a
+  useful identity anchor — read the name, the company and the title off the URL and the user's
+  own words, and move on. Never fetch it.
+- **Businesswire, PR Newswire and Globe Newswire** sit behind Akamai and answer "Access
+  Denied". The same release is on the company's own newsroom, dated, and that is the better
+  citation anyway.
+- **Search-engine result HTML** — Google, Bing and `html.duckduckgo.com` alike. Use the
+  `web_search` tool. Never hand-fetch a result page.
+
+**One attempt per host, per run.** A host that refused you once will refuse you again. Do not
+retry it with a different path, a different subdomain, or later in the same run. Record it as
+unreachable and spend the time on a source that answers.
+
+**Never guess a URL path.** `/about-us`, `/team`, `/company/leadership` are guesses, and a
+guess costs a full fetch to learn nothing. Fetch the homepage once, read the real links out of
+it, then follow them. Two 404s on invented paths is two dead ends you chose.
+
 ---
 
 ## 5. What lands in the thread
