@@ -53,11 +53,14 @@ on 2026-09-27. This image consumes it from upstream rather than patching around 
 - **[OpenClaw](https://docs.openclaw.ai)** — the agent runtime.
 - **[Plow](https://github.com/plow-pbc/plow-openclaw-agent)** — the hosting substrate and
   the base image. The phone line, the delivery plumbing and the base prompt are Plow's.
-- **Claude** (Anthropic) — authored the prompt layer, the skill, the tests and the docs.
-  **GLM 5.2** is the image's primary model at runtime, with Claude Sonnet as fallback; the
-  briefs produced during verification were written by GLM 5.2.
-- **DuckDuckGo** — search, chosen because it is the only key-free provider available. See
-  `docs/search-providers.md`.
+- **Claude** (Anthropic) — authored the prompt layer, the skill, the tests and the docs,
+  and runs the agent. The Plow base image ships **GLM 5.2** as primary with Claude Sonnet
+  as fallback; Rundown inverts that and runs **Claude Sonnet 5** as primary. The reasoning,
+  and what it costs, are in `docs/model-choice.md`. Briefs written during early development
+  were GLM's, before the inversion.
+- **[Parallel](https://parallel.ai)** — search, via their hosted Search MCP, which is
+  key-free by design rather than by loophole. **DuckDuckGo** stays installed as a one-string
+  fallback. Both, and why we switched, are in `docs/search-providers.md`.
 
 ## What is real and what is not
 
@@ -71,15 +74,20 @@ Everything below was run, not assumed.
 - The search path was wired and working when built — the absence of a usable `web_search` was
   found and fixed before publishing, not after. **It then stopped answering us**, along with
   several unrelated engines, after a night of heavy automated querying from one address. The
-  fallback to the Wikipedia API and primary sources is what carried the later briefs, and the
-  agent reported the degradation itself rather than hiding it.
+  fallback to the Wikipedia API and primary sources carried the briefs written in that window,
+  and the agent reported the degradation itself rather than hiding it. Search was then moved to
+  a second key-free provider and measured working again: seven live searches inside one real
+  inbound turn, every one returning.
 - The usage accounting is correct against a hand-summed ground truth on a live session.
 - The test suite passes.
 - Before publishing, the image was scanned file by file for the credential values it is
   trusted with. None are present.
+- The read-back, on a real inbound text on a real handset, on a follow-up message rather than
+  a first contact. Sent 17 seconds after the inbound; seven live searches; the finished brief
+  delivered 98 seconds after the text. Confirmed received by the recipient, not inferred from
+  a log.
 
 **Specified but never observed on a live thread:**
-- The read-back, in a real inbound SMS exchange.
 - Group routing beyond unit tests.
 - Contact-card ingest.
 - Whether a `.md` attachment renders sanely in a real RCS thread.
