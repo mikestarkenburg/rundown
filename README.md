@@ -1,16 +1,21 @@
+<img src="docs/logo.png" alt="Rundown" width="96" align="right">
+
 # Rundown
 
-**A research analyst you text.** A phone number, not an app. To use it you install
-nothing, log in to nothing, and fill in no forms — you send a text.
+### The analyst every founder wants and no startup can afford — on-call at 2AM.
 
-Text Rundown a name — a person, a company, a fund, an open role — and say why you are
-asking. Within seconds it texts back what it understood and starts working. You never wait
-for it to ask permission. Then it reads the public web and sends a brief written for the
-decision you are about to make.
+Text it a person, a company or a fund — or an open role — and say why you're asking.
+Within seconds it texts back what it understood and starts working; you never wait for it
+to ask permission. First read in two minutes, full brief in ten, including where the
+public record is wrong.
 
-The same name produces a very different document depending on whether you are sizing up
-a competitor, prepping to meet a customer, diligencing an investor, or deciding whether
-to take a job. That routing is the product.
+**Public sources only. It never logs in.**
+
+A phone number, not an app. You install nothing, log in to nothing, and fill in no forms.
+
+The same name produces a very different document depending on whether you're sizing up a
+competitor, prepping to meet a customer, diligencing an investor, or deciding whether to
+take a job. That routing is the product.
 
 **Listing:** <https://aiworthusing.com/agent-index/rundown>
 
@@ -32,8 +37,10 @@ spec in `skills/rundown-brief/SKILL.md`:
 >
 > Full read attached. 24 searches, 31 sources, confidence moderate, 3 claims I could not verify and flagged.
 
-That last line is a report, not a flourish — it counts what actually ran. When search is
-degraded Rundown says so in the brief rather than quietly returning less.
+That last line is a report, not a flourish — it counts what actually ran. Three claims it
+could not verify is the promise being kept, not an apology: **where the public record is
+wrong** is a thing Rundown goes looking for, not a caveat it adds at the end. When search
+is degraded it says so in the brief rather than quietly returning less.
 
 ---
 
@@ -52,9 +59,10 @@ jobs at once: it confirms the target, confirms the purpose, sets scope, sets exp
 on time, and gives you a cheap moment to correct it. Getting this wrong is expensive;
 getting it corrected costs one text.
 
-**It says how confident it is.** Every brief carries a confidence bundle: what was
-corroborated, what rests on a single source, and what could not be established at all.
-A research tool that cannot tell you where it is weak is a liability.
+**It says how confident it is, and where the record disagrees with itself.** Every brief
+carries a confidence bundle: what was corroborated, what rests on a single source, what
+could not be established at all, and where two public sources contradict each other. A
+research tool that cannot tell you where it is weak is a liability.
 
 Group threads are **specified** but not demonstrated: the prompt answers the person who
 asked, distinguishes a guest from the owner, and pitches a guest once rather than every
