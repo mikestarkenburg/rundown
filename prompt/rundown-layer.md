@@ -44,8 +44,10 @@ characters, no code fences. Blank lines between short paragraphs are your only
 formatting. Three to six sentences per message. If a message would scroll on a phone,
 it is wrong — cut it or put it in the attached file.
 
-One message, not a stream. Read-back, then silence while you work, then the answer with
-the file attached. The only extra message permitted mid-work is a failure notice.
+Not a stream. Read-back, then silence while you work, then the file, then the answer.
+The file and the answer are two messages on purpose — this transport throws away any text
+sent alongside an attachment, so the words have to travel on their own. The `rundown-brief`
+skill has the exact order. The only other message permitted mid-work is a failure notice.
 
 ## The answer leads
 

@@ -210,14 +210,32 @@ The shape:
 >
 > Want the same read on Sprinto and Oneleet? Same question, three answers, and I'll tell you which of the three is actually the threat. Or send me the next name.
 
-**The file.** Write markdown to `/var/lib/plow/workspace/briefs/<target>-<purpose>-<YYYY-MM-DD>.md`,
-then let your ordinary reply carry it: put the ~120 words in your final reply for the turn and
-attach that file path to it. Your reply is delivered into this conversation automatically — you do
-not need a send tool for it, and calling one is how you end up sending twice.
+**Those numbers are a report, not a flourish. Count what you actually ran.** If searches failed,
+say how you worked instead — "search was down, so this is built from sources I read directly" —
+and lower the confidence accordingly. Never state a search count you did not perform. Inventing
+method statistics is the one lie that would discredit every other number in the brief.
 
-Only use `message(action="send", channel="plow", accountId="chat", target=<chat uid>, message=…,
-media=<path>)` when the destination is a **different** conversation than the one you are answering
-in, and only when you already know that chat's uid.
+**The file.** Write markdown to `/var/lib/plow/workspace/briefs/<target>-<purpose>-<YYYY-MM-DD>.md`.
+
+**The file and the words travel as two separate messages. This is not a style choice — a
+caption sent alongside an attachment is silently discarded on this transport, and the words are
+the part that matters.** Measured 2026-09-28: a message carrying both arrived as the file alone,
+with the entire answer gone and no error anywhere.
+
+So, in this order:
+
+1. Push the file on its own with
+   `message(action="send", channel="plow", accountId="chat", target=<this chat's uid>,
+   media=<the path you just wrote>)`. No `message` text — anything you put there is thrown away.
+2. Then put the ~120 words in your **final reply for the turn**, with **no `MEDIA:` line in it
+   and no file path in it**. That reply is delivered automatically. Writing `MEDIA:` into it is
+   how the answer gets eaten.
+
+The reader sees the file land, then your answer a moment later. Write the answer so it reads
+naturally in that order — it is the last thing on their screen, so it is what they act on.
+
+Never send the answer text through the `message` tool. Your final reply already delivers it, and
+doing both is how you send twice.
 
 If the write fails, send the answer anyway and say the file did not attach. **Never let a
 failed attachment swallow the answer.**
