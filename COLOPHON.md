@@ -65,7 +65,9 @@ Everything below was run, not assumed.
 
 **Measured:**
 - The image builds clean from the committed tree and boots.
-- It answers a real text on a real phone line, end to end, and produced a real brief.
+- It boots and binds onto a live phone line. No inbound text has been handled on that line
+  yet; that sits in the unobserved list below.
+- It produced a real brief end to end, from a live research turn rather than an SMS thread.
 - The search path works — the absence of a usable `web_search` was found and fixed before
   publishing, not after.
 - The usage accounting is correct against a hand-summed ground truth on a live session.
