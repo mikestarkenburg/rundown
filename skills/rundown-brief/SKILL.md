@@ -231,10 +231,10 @@ So, in this order:
 
 1. Push the file on its own with
    `message(action="send", channel="plow", accountId="chat", target=<this chat's uid>,
-   media=<the path you just wrote>)`. No `message` text — anything you put there is thrown away.
-2. Then put the ~120 words in your **final reply for the turn**, with **no `MEDIA:` line in it
-   and no file path in it**. That reply is delivered automatically. Writing `MEDIA:` into it is
-   how the answer gets eaten.
+   media=<the path you just wrote>)`. No text in that call — anything you put there is thrown away.
+2. Then put the ~120 words in your **final reply for the turn**, containing **no file path of
+   any kind**. That reply is delivered automatically. A path written into that text is what
+   gets the answer eaten.
 
 The reader sees the file land, then your answer a moment later. Write the answer so it reads
 naturally in that order — it is the last thing on their screen, so it is what they act on.
