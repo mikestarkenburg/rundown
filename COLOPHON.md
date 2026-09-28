@@ -10,7 +10,7 @@ colophon   H   H+   [=]   A+   A    |   self-measured, no independent verificati
 |---|---|
 | **Origin** | `=` — a model originated 5 of the 10 scored stages |
 | **Verified** | self-measured; no independent verification |
-| **Attested** | Mike Starkenburg |
+| **Attested** | Michael Starkenburg |
 
 ## Read this before you read the dial
 
@@ -89,4 +89,4 @@ This ledger was compiled at rebuild time from the build record, which is itself 
 reconstruction. Stage attribution is a judgment call and the person best placed to correct
 it is Stark. Published attributions stand as his.
 
-*Attested: Mike Starkenburg, 2026-09-28.*
+*Attested: Michael Starkenburg, 2026-09-28.*

@@ -81,5 +81,5 @@ This was built for a hackathon, on a deadline. What is solid and what is not:
 
 ## Credits
 
-Built by Mike Starkenburg. Runs on [Plow](https://github.com/plow-pbc/plow-openclaw-agent)
+Built by Stark. Runs on [Plow](https://github.com/plow-pbc/plow-openclaw-agent)
 and [OpenClaw](https://docs.openclaw.ai). Search by DuckDuckGo.
