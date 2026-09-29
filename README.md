@@ -99,13 +99,16 @@ you nothing but a text message.
 If you would rather see the image, it is public:
 
 ```
-ghcr.io/mikestarkenburg/rundown:2026-09-28.1
+ghcr.io/mikestarkenburg/rundown:2026-09-29
 ```
 
-Digest `sha256:8f31f253aaadb0540841cfb28f95d12bd50496e1ceb4c14b0decd092e1190ed7`. It is
-anonymously pullable — no GitHub account, no credential. That digest is the exact build
-that answered the live text recorded under **Honest status**, not a later rebuild that
-ought to be equivalent.
+Digest `sha256:ccc4a787b0047a3e0aab9efcde691ef191a73d95eaeed3f8c51e7bd020b00150`. It is
+anonymously pullable — no GitHub account, no credential. That is the digest pinned on the
+listing, so it is exactly what a one-click install runs.
+
+It differs from `:2026-09-28.1` (`sha256:8f31f253…`) in three lines of the prompt and
+nothing else. Until this build has its own live receipt, the timings recorded under
+**Honest status** belong to that earlier digest, which is still public and still pullable.
 
 Be aware of what self-hosting does **not** get you: the image expects a Plow line
 credential and a phone number attached to it, and without one it will boot and have nobody
