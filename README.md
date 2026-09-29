@@ -19,10 +19,10 @@ take a job. That routing is the product.
 
 **Listing:** <https://aiworthusing.com/agent-index/rundown>
 
-One-click install from that page goes live once the Agent Index admits the image; until
-then the page is a listing, not a button. Running your own copy needs a Plow account and a
-line. This is stated plainly because a dead install button is the kind of thing this repo
-is otherwise careful about.
+One-click install from that page is live — the Agent Index verified and blessed the entry
+on 2026-09-28. Installing puts your own copy on a phone line of your own, so it needs a
+Plow account with a free line. The tokens Rundown spends researching for you are billed to
+your account, not to ours; that is worth knowing before you hand the number to a group.
 
 ### What comes back
 
@@ -92,9 +92,9 @@ nothing else.
 
 ## Running it yourself
 
-The intended way in is hosted, on a phone line, where using it costs you nothing but a
-text message. That path is not open to the public yet — see the note under the listing
-link above.
+The intended way in is hosted, on a phone line. That path is open — install from the
+listing above and Rundown arrives on a number of its own, and from then on using it costs
+you nothing but a text message.
 
 If you would rather see the image, it is public:
 
@@ -128,8 +128,10 @@ pretend otherwise.
 
 This was built for a hackathon, on a deadline. What is solid and what is not:
 
-- **Verified working:** the build, boot on a real phone line and the first inbound text
-  answered on it, the first-turn script, the brief end to end, and the usage accounting.
+- **Verified working:** the build, a hosted deploy on Plow's cloud answering texts on a
+  number of its own, the first inbound text answered on it, the first-turn script, the
+  brief end to end, the usage accounting, and an install performed by someone other than
+  the author on their own account.
   The read-back too — on a real handset, on a follow-up text rather than a first contact,
   sent 17 seconds after the inbound, with the finished brief arriving 98 seconds after the
   text. The test suite passes — those tests are not published here, so take that one on
@@ -145,6 +147,12 @@ This was built for a hackathon, on a deadline. What is solid and what is not:
   in about a second. Details and the honest tradeoffs are in `docs/search-providers.md`.
   Rundown still falls back to the Wikipedia API and primary sources, and it **tells you in
   the brief** when it worked that way.
+- **A rough edge that is measured, and is not ours to fix:** if the Plow account paying
+  for the line runs out of credit mid-conversation, the person texting gets a generic
+  failure — *"I couldn't finish handling your last message"* — that says nothing about
+  billing, while the account owner gets an SMS warning below $2. Measured on 2026-09-28 by
+  taking the balance to zero deliberately. Every infrastructure signal stays green through
+  it, and the agent resumes by itself the moment credit lands, with no redeploy.
 - **Specified but not observed on a live thread:** group routing beyond unit tests,
   contact-card ingest, and how a `.md` attachment renders in a real RCS thread.
 
