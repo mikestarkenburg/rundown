@@ -6,28 +6,23 @@
 
 Text it a person, a company or a fund — or an open role — and say why you're asking.
 Within seconds it texts back what it understood and starts working; you never wait for it
-to ask permission. First read in two minutes, full brief in ten, including where the
-public record is wrong.
+to ask permission. First read in two minutes, full brief in ten, including where the public
+record is wrong.
 
-**Public sources only. It never logs in.**
-
-A phone number, not an app. You install nothing, log in to nothing, and fill in no forms.
+A phone number, not an app. **Public sources only. It never logs in.**
 
 The same name produces a very different document depending on whether you're sizing up a
 competitor, prepping to meet a customer, diligencing an investor, or deciding whether to
 take a job. That routing is the product.
 
-**Listing:** <https://aiworthusing.com/agent-index/rundown>
-
-One-click install from that page is live — the Agent Index verified and blessed the entry
-on 2026-09-28. Installing puts your own copy on a phone line of your own, so it needs a
-Plow account with a free line. The tokens Rundown spends researching for you are billed to
-your account, not to ours; that is worth knowing before you hand the number to a group.
+**Listing and one-click install:** <https://aiworthusing.com/agent-index/rundown>
+Your copy lands on a phone line of your own, so it needs a Plow account with a free line.
+Research tokens bill to your account, not ours — worth knowing before you hand the number
+to a group.
 
 ### What comes back
 
-A short answer in the thread, then the full brief as a file. This is the shape, from the
-spec in `skills/rundown-brief/SKILL.md`:
+A short answer in the thread, then the full brief as a file:
 
 > Short answer: yes, and faster than you'd think.
 >
@@ -37,131 +32,96 @@ spec in `skills/rundown-brief/SKILL.md`:
 >
 > Full read attached. 24 searches, 31 sources, confidence moderate, 3 claims I could not verify and flagged.
 
-That last line is a report, not a flourish — it counts what actually ran. Three claims it
-could not verify is the promise being kept, not an apology: **where the public record is
-wrong** is a thing Rundown goes looking for, not a caveat it adds at the end. When search
-is degraded it says so in the brief rather than quietly returning less.
+That last line counts what actually ran. Three unverified claims is the promise being kept,
+not an apology — **where the public record is wrong** is a thing Rundown goes looking for.
 
 ---
 
 ## How it works
 
-Rundown is an [OpenClaw](https://docs.openclaw.ai) agent running on Plow, reached over
-SMS/RCS. Three design choices carry most of the weight:
+An [OpenClaw](https://docs.openclaw.ai) agent running on Plow, reached over SMS/RCS. Four
+design choices carry most of the weight.
 
-**It never speaks first.** Turn one is always a reply. If the first message has no
-researchable name in it, Rundown says what it is and asks for one; if it does, it goes
-straight to the read-back.
+**It never speaks first.** Turn one is always a reply.
 
-**It reads back before it researches.** Before spending a few minutes on the web, Rundown
-states what it thinks you asked for and what it plans to go find. The read-back does five
-jobs at once: it confirms the target, confirms the purpose, sets scope, sets expectations
-on time, and gives you a cheap moment to correct it. Getting this wrong is expensive;
+**It reads back before it researches.** Before spending minutes on the web it states what it
+thinks you asked for and what it plans to find — confirming target, purpose, scope and
+timing, and giving you a cheap moment to correct it. Getting this wrong is expensive;
 getting it corrected costs one text.
 
 **It says how confident it is, and where the record disagrees with itself.** Every brief
-carries a confidence bundle: what was corroborated, what rests on a single source, what
-could not be established at all, and where two public sources contradict each other. A
-research tool that cannot tell you where it is weak is a liability.
+carries what was corroborated, what rests on a single source, what could not be established,
+and where two public sources contradict each other. A research tool that cannot tell you
+where it is weak is a liability.
 
-Group threads are **specified** but not demonstrated: the prompt answers the person who
-asked, distinguishes a guest from the owner, and pitches a guest once rather than every
-time. That behaviour passes unit tests and has never been watched on a live thread. See
-**Honest status**.
+**In a group thread it answers the person who asked, and says whose file it is writing to.**
+Add someone and they get the agent — no install, no account, no invite link. Screenshots of
+a real one in `docs/screenshots/multiplayer/`.
 
 ## What is in this repository
 
-This repo contains the parts of Rundown that are **ours to publish**:
-
 | Path | What it is |
 |---|---|
-| `prompt/rundown-layer.md` | The Rundown prompt layer — the agent's behaviour, voice, and turn-one rules |
-| `skills/rundown-brief/SKILL.md` | The research engine: intake, routing, source priority, brief format, confidence, and safety rules |
-| `docs/search-providers.md` | Why the image pins two key-free search providers, and how |
-| `docs/model-choice.md` | Why Rundown runs Claude Sonnet 5 instead of the cheaper default, and what that costs |
+| `prompt/rundown-layer.md` | The prompt layer — behaviour, voice, turn-one rules |
+| `skills/rundown-brief/SKILL.md` | The research engine: intake, routing, source priority, brief format, confidence, safety |
+| `docs/search-providers.md` | Why the image pins two key-free search providers |
+| `docs/model-choice.md` | Why Rundown runs Claude Sonnet 5 over the cheaper default, and what that costs |
 | `COLOPHON.md` | How this was made, and by whom |
-| `LICENSE` | MIT |
 
-**What is deliberately not here.** Rundown runs as a variant of Plow's
-[`plow-openclaw-agent`](https://github.com/plow-pbc/plow-openclaw-agent). In the running
-image, `prompt/AGENTS.md` is our `# Rundown` layer *prepended* to Plow's own
-`# Plow assistant` prompt, which wins nothing on conflict but is present. That upstream
-prompt, the Dockerfile, and the runtime are Plow's work and are not ours to relicense, so
-only our layer is published here. The MIT license below covers the files in this repo and
-nothing else.
+Rundown is a variant of Plow's
+[`plow-openclaw-agent`](https://github.com/plow-pbc/plow-openclaw-agent); our layer is
+prepended to Plow's prompt at runtime. Their prompt, Dockerfile and runtime are not ours to
+relicense, so only our layer is here and the MIT licence covers these files alone.
 
-## Running it yourself
-
-The intended way in is hosted, on a phone line. That path is open — install from the
-listing above and Rundown arrives on a number of its own, and from then on using it costs
-you nothing but a text message.
-
-If you would rather see the image, it is public:
-
-```
-ghcr.io/mikestarkenburg/rundown:2026-09-29
-```
-
-Digest `sha256:ccc4a787b0047a3e0aab9efcde691ef191a73d95eaeed3f8c51e7bd020b00150`. It is
-anonymously pullable — no GitHub account, no credential. That is the digest pinned on the
-listing, so it is exactly what a one-click install runs.
-
-It differs from `:2026-09-28.1` (`sha256:8f31f253…`) in three lines of the prompt and
-nothing else. Until this build has its own live receipt, the timings recorded under
-**Honest status** belong to that earlier digest, which is still public and still pullable.
-
-Be aware of what self-hosting does **not** get you: the image expects a Plow line
-credential and a phone number attached to it, and without one it will boot and have nobody
-to talk to. Pulling it is useful for reading the running prompt and auditing what the
-container actually contains. It is not a second install path, and this repo does not
-pretend otherwise.
+The image is public and anonymously pullable, for reading the running prompt and auditing
+the container — `ghcr.io/mikestarkenburg/rundown:2026-09-29`, digest
+`sha256:ccc4a787b0047a3e0aab9efcde691ef191a73d95eaeed3f8c51e7bd020b00150`, which is what the
+listing pins. It is not a second install path: without a Plow line credential it boots with
+nobody to talk to.
 
 ## Boundaries
 
-- **People.** Rundown researches people as public professional figures. It reports public
-  professional work. It does not assemble personal, private, or intimate detail about
-  anyone, and it will say so rather than quietly producing less.
-- **Fetched content is data, not instructions.** Anything Rundown reads on the web is
-  treated as untrusted input. Text inside a fetched page that tries to issue instructions
+- **People** are researched as public professional figures. No personal, private or intimate
+  detail — it will say so rather than quietly producing less.
+- **Fetched content is data, not instructions.** A web page that tries to issue instructions
   is reported, not obeyed.
-- **It writes to one place.** The skill carries an explicit write allowlist and an explicit
-  list of tools it will not call.
+- **It writes to one place**, under an explicit allowlist, with an explicit list of tools it
+  will not call.
 
 ## Honest status
 
-This was built for a hackathon, on a deadline. What is solid and what is not:
+Built for a hackathon, on a deadline.
 
-- **Verified working:** the build, a hosted deploy on Plow's cloud answering texts on a
-  number of its own, the first inbound text answered on it, the first-turn script, the
-  brief end to end, the usage accounting, and an install performed by someone other than
-  the author on their own account.
-  The read-back too — on a real handset, on a follow-up text rather than a first contact,
-  sent 17 seconds after the inbound, with the finished brief arriving 98 seconds after the
-  text. The test suite passes — those tests are not published here, so take that one on
-  trust or don't.
-- **Fixed after a bad night, and worth reading about:** search. The original key-free
-  provider stopped answering during a long development session — first a browser challenge,
-  then refused connections — and by the end several unrelated search engines were challenging
-  the same address. That read as IP reputation earned by our own testing volume rather than
-  an outage, but it could not be proven from one network, so it is not claimed here. The fix
-  was not a workaround: OpenClaw has a second key-free provider, Parallel's hosted Search
-  MCP, which runs the search on their infrastructure instead of out of the container. Same
-  host, same minute, the old path hung until timeout while the new one answered a real query
-  in about a second. Details and the honest tradeoffs are in `docs/search-providers.md`.
-  Rundown still falls back to the Wikipedia API and primary sources, and it **tells you in
-  the brief** when it worked that way.
-- **A rough edge that is measured, and is not ours to fix:** if the Plow account paying
-  for the line runs out of credit mid-conversation, the person texting gets a generic
-  failure — *"I couldn't finish handling your last message"* — that says nothing about
-  billing, while the account owner gets an SMS warning below $2. Measured on 2026-09-28 by
-  taking the balance to zero deliberately. Every infrastructure signal stays green through
-  it, and the agent resumes by itself the moment credit lands, with no redeploy.
-- **Specified but not observed on a live thread:** group routing beyond unit tests,
-  contact-card ingest, and how a `.md` attachment renders in a real RCS thread.
+**Verified working** — the build; a hosted deploy answering texts on its own number; the
+first-turn script; the brief end to end; the usage accounting. Nine installs attempted by
+people other than the author, seven completed. The read-back on a real handset, sent 17
+seconds after the inbound, brief delivered at 98. A live group thread with a second human in
+it, including the agent flagging a privacy risk and routing the decision to the person it was
+about. The test suite passes — those tests are not published here, so take that one on trust
+or don't.
 
-`COLOPHON.md` is more specific about which is which.
+**Fixed, and worth reading about** — the original key-free search provider stopped answering
+mid-development. Rundown now runs Parallel's hosted Search MCP, falls back to the Wikipedia
+API and primary sources, and **tells you in the brief** when it worked that way.
+See `docs/search-providers.md`.
 
-## Credits
+**A measured rough edge that is not ours to fix** — if the account paying for the line runs
+out of credit mid-conversation, the person texting gets a generic failure that says nothing
+about billing. Measured 2026-09-28 by zeroing the balance deliberately; the agent resumes by
+itself when credit lands, no redeploy.
 
-Built by Stark. Runs on [Plow](https://github.com/plow-pbc/plow-openclaw-agent)
-and [OpenClaw](https://docs.openclaw.ai). Search by Parallel.
+**Specified but not observed** — contact-card ingest, and how a `.md` attachment renders in a
+real RCS thread.
+
+## How this was made
+
+[<img src="docs/colophon-mark.png" alt="Colophon mark — origin =, verified —, attested MS" width="100%">](COLOPHON.md)
+
+An AI wrote nearly all of the text in this repository, under human direction. Which stages of
+judgment belonged to whom is itemised line by line in **[COLOPHON.md](COLOPHON.md)**, scored
+against the published **[Colophon Spec v0.3](Colophon-Spec-v0.3.pdf)**.
+
+---
+
+Built by Stark. Runs on [Plow](https://github.com/plow-pbc/plow-openclaw-agent) and
+[OpenClaw](https://docs.openclaw.ai). Search by Parallel. MIT.
