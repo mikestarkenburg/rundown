@@ -94,8 +94,9 @@ Built for a hackathon, on a deadline.
 
 **Verified working** — the build; a hosted deploy answering texts on its own number; the
 first-turn script; the brief end to end; the usage accounting. Nine installs attempted by
-people other than the author, seven completed. The read-back on a real handset, sent 17
-seconds after the inbound, brief delivered at 98. A live group thread with a second human in
+people other than the author, eight completed as of the 2026-09-30 snapshot. The read-back
+on a real handset, sent 16 seconds after the inbound, the finished brief delivered 87 seconds
+after the text. A live group thread with a second human in
 it, including the agent flagging a privacy risk and routing the decision to the person it was
 about. The test suite passes — those tests are not published here, so take that one on trust
 or don't.

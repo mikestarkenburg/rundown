@@ -92,9 +92,10 @@ Everything below was run, not assumed.
   acked in 6.5 seconds, against the published image rather than a dev build.
 - It produced a real brief end to end, from a live research turn rather than an SMS thread.
 - The read-back, on a real inbound text on a real handset, on a follow-up message rather than
-  a first contact. Sent 17 seconds after the inbound; seven live searches; the finished brief
-  delivered 98 seconds after the text. Confirmed received by the recipient, not inferred from
-  a log.
+  a first contact. Sent 16 seconds after the inbound; seven live searches; the finished brief
+  delivered 87 seconds after the text, session closed at 98. Confirmed received by the
+  recipient, not inferred from a log. Basis, 2026-09-28 container log: inbound 10:43:35Z,
+  read-back tool call 10:43:51, brief delivered 10:45:02, session end 10:45:13.
 - **Group routing, on a live RCS thread with a second human in it** — observed 2026-09-29, and
   the reason this line moved out of the "never observed" list below. Unprompted, the agent told
   the guest which file it was writing to and that his additions would go to his own rather than
